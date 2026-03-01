@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khulafa Islamic Secondary School | Ndejje-Lubugumu</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #006400;
+            --accent: #FFD700;
+            --white: #ffffff;
+            --transition: all 0.4s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background: #fff; }
+
+        /* --- Navigation (Disappearing Logic) --- */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(0, 64, 0, 0.98);
+            backdrop-filter: blur(10px); z-index: 2000;
+            padding: 0.6rem 5%; display: flex;
+            justify-content: space-between; align-items: center;
+            border-bottom: 3px solid var(--accent);
+        }
+        .logo-box { display: flex; align-items: center; text-decoration: none; }
+        .logo-box img { height: 45px; margin-right: 10px; }
+        .logo-box span { color: var(--accent); font-family: 'Orbitron'; font-weight: bold; font-size: 0.8rem; }
+
+        .nav-links { display: none; list-style: none; }
+        .nav-links.active {
+            display: flex; flex-direction: column; position: absolute;
+            top: 100%; left: 0; width: 100%; background: var(--primary);
+            padding: 2rem; gap: 1.5rem; text-align: center;
+        }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; }
+        .hamburger { cursor: pointer; color: var(--accent); font-size: 1.5rem; }
+
+        /* --- Hero --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,40,0,0.7), rgba(0,40,0,0.7)), url('https://i.ibb.co/bj3XBGkf/unnamed-1.webp') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white; padding: 2rem;
+        }
+        .hero img { width: 140px; margin-bottom: 1rem; }
+        .hero h1 { font-family: 'Orbitron'; color: var(--accent); font-size: 2.5rem; }
+
+        /* --- Content Cards --- */
+        section { padding: 4rem 8%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .card { border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-bottom: 4px solid var(--accent); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-body { padding: 1.5rem; }
+
+        /* --- Map Section --- */
+        .map-wrapper { margin-top: 2rem; border: 4px solid var(--accent); border-radius: 15px; overflow: hidden; height: 400px; position: relative; }
+        .directions-btn {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: var(--primary); color: var(--accent); padding: 10px 20px;
+            text-decoration: none; font-family: 'Orbitron'; font-weight: bold; border-radius: 5px; z-index: 10;
+        }
+
+        /* --- Apply Form --- */
+        .form-container { background: #f9f9f9; padding: 2rem; border-radius: 15px; max-width: 600px; margin: 0 auto; }
+        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px; }
+        .submit-btn { width: 100%; background: var(--primary); color: var(--accent); padding: 15px; border: none; font-family: 'Orbitron'; font-weight: bold; cursor: pointer; }
+
+        /* --- WhatsApp --- */
+        .wa-float {
+            position: fixed; bottom: 25px; right: 25px;
+            background: #25d366; color: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; z-index: 3000; animation: pulse 2s infinite; text-decoration: none;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo-box">
+            <img src="https://i.ibb.co/1Yx0Fzph/Chat-GPT-Image-Feb-20-2026-02-26-20-AM.png" alt="Logo">
+            <span>KHULAFA<br>ISLAMIC</span>
+        </a>
+        <div class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#campus">CAMPUS</a></li>
+            <li><a href="#academics">ACADEMICS</a></li>
+            <li><a href="#apply">APPLY</a></li>
+            <li><a href="#contact">LOCATION</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <img src="https://i.ibb.co/1Yx0Fzph/Chat-GPT-Image-Feb-20-2026-02-26-20-AM.png" alt="Logo">
+        <h1>Khulafa Islamic</h1>
+        <p>Knowledge for Human Development</p>
+        <a href="#apply" style="margin-top: 2rem; background: var(--accent); color: var(--primary); padding: 1rem 2rem; text-decoration: none; font-weight: bold; border-radius: 5px;">APPLY NOW</a>
+    </header>
+
+    <section id="campus">
+        <h2 style="text-align:center; font-family:'Orbitron'; margin-bottom:2rem; color:var(--primary);">Our Campus</h2>
+        <div class="grid">
+            <div class="card"><img src="https://i.ibb.co/MyFKpXRx/images-32.jpg"><div class="card-body"><h3>Disciplined Environment</h3><p>Safe and quiet for students.</p></div></div>
+            <div class="card"><img src="https://i.ibb.co/hJR2pmWL/images-33.jpg"><div class="card-body"><h3>Sports & Clubs</h3><p>Developing future leaders.</p></div></div>
+        </div>
+    </section>
+
+    <section id="academics" style="background: #f4f4f4;">
+        <h2 style="text-align:center; font-family:'Orbitron'; margin-bottom:2rem; color:var(--primary);">Academic Excellence</h2>
+        <div class="grid">
+            <div class="card"><img src="https://i.ibb.co/JjYBj53V/unnamed.webp"><div class="card-body"><h3>Curriculum</h3><p>Sciences & Islamic Studies.</p></div></div>
+            <div class="card"><img src="https://i.ibb.co/WNcvP8tG/488499132-9862049743845805-1706468137429547467-n.jpg"><div class="card-body"><h3>Student Life</h3><p>Character and Integrity.</p></div></div>
+        </div>
+    </section>
+
+    <section id="apply">
+        <h2 style="text-align:center; font-family:'Orbitron'; margin-bottom:2rem; color:var(--primary);">Enroll Now</h2>
+        <div class="form-container">
+            <div id="formContent">
+                <form id="enrollForm">
+                    <input type="text" placeholder="Student Name" required>
+                    <input type="tel" placeholder="Parent Phone" required>
+                    <select><option>Select Class...</option><option>S.1</option><option>S.2</option><option>S.3</option><option>S.4</option><option>S.5</option><option>S.6</option></select>
+                    <button type="submit" class="submit-btn">SUBMIT</button>
+                </form>
+            </div>
+            <div id="successMsg" style="display:none; text-align:center; color:var(--primary);">
+                <i class="fas fa-check-circle" style="font-size:3rem;"></i>
+                <p>Application Sent Successfully!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 style="text-align:center; font-family:'Orbitron'; margin-bottom:2rem; color:var(--primary);">Find Us</h2>
+        <div class="map-wrapper">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Ndejje+Lubugumu+Uganda" target="_blank" class="directions-btn">OPEN IN GPS / GET DIRECTIONS</a>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.278913961735!2d32.5552395!3d0.2447472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc26027a4173%3A0x67a3038676d37014!2sNdejje%20Lubugumu!5e0!3m2!1sen!2sug!4v1700000000000" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <a href="https://wa.me/256702883108" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const links = document.querySelectorAll('.nav-links a');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active'); // DISAPPEAR MENU
+                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        document.getElementById('enrollForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('formContent').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
